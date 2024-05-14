@@ -1,4 +1,4 @@
-package uy.edu.um.adt.queue;
+package Tads.queue;
 
 public class EmptyQueueException extends Exception {
 
