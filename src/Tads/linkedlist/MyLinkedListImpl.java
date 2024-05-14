@@ -1,6 +1,5 @@
 package Tads.linkedlist;
 
-import Tads.circularlinkedlist.MyCircularLinkedList;
 import Tads.queue.EmptyQueueException;
 import Tads.queue.MyQueue;
 import Tads.stack.EmptyStackException;
@@ -234,12 +233,4 @@ public class MyLinkedListImpl<T> implements MyList<T>, MyQueue<T>, MyStack<T>, M
         return valueToReturn;
     }
 
-    // Operaciones particulares a CircularLinkedList
-    @Override
-    public T getCircularLogic(int position) {
-        if (size() == 0) {
-            return null;
-        }
-        return get(position % size());
-    }
 }
