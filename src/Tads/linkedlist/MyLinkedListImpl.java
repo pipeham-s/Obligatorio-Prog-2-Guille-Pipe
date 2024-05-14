@@ -1,10 +1,10 @@
-package uy.edu.um.adt.linkedlist;
+package Tads.linkedlist;
 
-import uy.edu.um.adt.circularlinkedlist.MyCircularLinkedList;
-import uy.edu.um.adt.queue.EmptyQueueException;
-import uy.edu.um.adt.queue.MyQueue;
-import uy.edu.um.adt.stack.EmptyStackException;
-import uy.edu.um.adt.stack.MyStack;
+import Tads.circularlinkedlist.MyCircularLinkedList;
+import Tads.queue.EmptyQueueException;
+import Tads.queue.MyQueue;
+import Tads.stack.EmptyStackException;
+import Tads.stack.MyStack;
 
 public class MyLinkedListImpl<T> implements MyList<T>, MyQueue<T>, MyStack<T>, MyCircularLinkedList<T> {
 
