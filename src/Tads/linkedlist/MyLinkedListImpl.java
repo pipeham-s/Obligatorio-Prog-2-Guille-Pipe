@@ -5,7 +5,7 @@ import Tads.queue.MyQueue;
 import Tads.stack.EmptyStackException;
 import Tads.stack.MyStack;
 
-public class MyLinkedListImpl<T> implements MyList<T>, MyQueue<T>, MyStack<T>, MyCircularLinkedList<T> {
+public class MyLinkedListImpl<T> implements MyList<T>, MyQueue<T>, MyStack<T> {
 
     private Node<T> first;
 
