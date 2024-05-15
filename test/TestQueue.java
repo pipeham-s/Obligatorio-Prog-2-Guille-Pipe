@@ -1,7 +1,7 @@
-import Tads.linkedlist.MyLinkedListImpl;
-import Tads.queue.EmptyQueueException;
-import Tads.stack.EmptyStackException;
-import Tads.queue.MyQueue;
+import uy.edu.um.prog2.adt.linkedlist.MyLinkedListImpl;
+import uy.edu.um.prog2.adt.queue.EmptyQueueException;
+import uy.edu.um.prog2.adt.stack.EmptyStackException;
+import uy.edu.um.prog2.adt.queue.MyQueue;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

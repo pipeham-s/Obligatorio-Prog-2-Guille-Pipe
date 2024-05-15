@@ -1,4 +1,4 @@
-import Tads.linkedlist.MyLinkedListImpl;
+import uy.edu.um.prog2.adt.linkedlist.MyLinkedListImpl;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
