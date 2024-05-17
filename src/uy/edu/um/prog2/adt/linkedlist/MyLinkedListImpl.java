@@ -1,9 +1,9 @@
-package Tads.linkedlist;
+package uy.edu.um.prog2.adt.linkedlist;
 
-import Tads.queue.EmptyQueueException;
-import Tads.queue.MyQueue;
-import Tads.stack.EmptyStackException;
-import Tads.stack.MyStack;
+import uy.edu.um.prog2.adt.queue.EmptyQueueException;
+import uy.edu.um.prog2.adt.queue.MyQueue;
+import uy.edu.um.prog2.adt.stack.EmptyStackException;
+import uy.edu.um.prog2.adt.stack.MyStack;
 
 public class MyLinkedListImpl<T> implements MyList<T>, MyQueue<T>, MyStack<T> {
 
