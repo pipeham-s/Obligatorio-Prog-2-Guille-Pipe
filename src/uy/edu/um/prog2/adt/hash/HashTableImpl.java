@@ -38,14 +38,57 @@ public class HashTableImpl <K,V> implements HashTable <K,V> {
 
     private int funHash(K key) {return key.hashCode() % size;} //sin usar hashcode la idea es hallar el modulo de la division la llave por el tamaño del arreglo
 
+
+    // hash tiene que ser para cualquier variable? o para enteros?
+
+    // se suma 1 a pos (se busca el libre) o se hace un hash a key + 1? en realidad no se hace a key + 1 pq puede ser un string
     @Override
     public void put(K key, V value) {
         int pos = funHash(key);
-
+        HashNode<K, V> entrada = new HashNode<>(key, value);
+        if (table[pos] == null) {
+            table[pos] = entrada;
+            loadFactor = ((loadFactor * size) + 1) / size;
+        } else {
+            // si la posicion ya esta ocupada
+            // se busca la siguiente posicion libre
+            int i = pos + 1;
+            while (i != pos) {
+                if (i == size) {
+                    i = 0;
+                }
+                //seguira siendo O(1)?
+                if (table[i] == null) {
+                    table[i] = entrada;
+                    loadFactor = ((loadFactor * size) + 1) / size;
+                    break;
+                }
+                i++;
+            }
+        }
     }
 
     @Override
     public boolean contains(K key) {
+        int pos = funHash(key);
+        if (table[pos] != null) {
+            if (table[pos].getKey().equals(key)) {
+                return true;
+            } else {
+                int i = pos + 1;
+                while (i != pos) {
+                    if (i == size) {
+                        i = 0;
+                    }
+                    if (table[i] != null) {
+                        if (table[i].getKey().equals(key)) {
+                            return true;
+                        }
+                    }
+                    i++;
+                }
+            }
+        }
         return false;
     }
 
