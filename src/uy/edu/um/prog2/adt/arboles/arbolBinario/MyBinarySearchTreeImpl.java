@@ -1,4 +1,4 @@
-package Tads.arboles.arbolBinario;
+package uy.edu.um.prog2.adt.arboles.arbolBinario;
 
 public class MyBinarySearchTreeImpl <K extends Comparable<K>, T> implements MyBinarySearchTree <K, T>{
 

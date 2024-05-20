@@ -1,6 +1,6 @@
-package Tads.arboles.arbolNormal;
+package uy.edu.um.prog2.adt.arboles.arbolNormal;
 
-import Tads.arboles.Exceptions.HijosCompletosExceptions;
+import uy.edu.um.prog2.adt.arboles.Exceptions.HijosCompletosExceptions;
 
 public interface MyTree<K,T> {
 

@@ -1,4 +1,4 @@
-package Tads.arboles.arbolBinario;
+package uy.edu.um.prog2.adt.arboles.arbolBinario;
 
 import java.util.Objects;
 

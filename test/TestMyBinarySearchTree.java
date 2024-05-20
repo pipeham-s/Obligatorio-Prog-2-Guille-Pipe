@@ -1,5 +1,5 @@
-import Tads.arboles.arbolBinario.MyBinarySearchTree;
-import Tads.arboles.arbolBinario.MyBinarySearchTreeImpl;
+import uy.edu.um.prog2.adt.arboles.arbolBinario.MyBinarySearchTree;
+import uy.edu.um.prog2.adt.arboles.arbolBinario.MyBinarySearchTreeImpl;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
