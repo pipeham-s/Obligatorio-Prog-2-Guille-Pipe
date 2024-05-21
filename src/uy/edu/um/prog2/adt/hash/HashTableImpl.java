@@ -12,6 +12,7 @@ public class HashTableImpl <K,V> implements HashTable <K,V> {
         this.size = size;
         this.table = new HashNode[size];
         this.loadFactor = 0; // en el constructor comienza en 0 ya que sea del tamaño que sea el arreglo, no tiene elementos.
+        // o el load factor es el limite
     }
 
     public int getSize() {
@@ -41,6 +42,7 @@ public class HashTableImpl <K,V> implements HashTable <K,V> {
     private int funHash(K key) {return key.hashCode() % size;} //sin usar hashcode la idea es hallar el modulo de la division la llave por el tamaño del arreglo
 
     // hash tiene que ser para cualquier variable? o para enteros?
+    // put tiene que tener en cuenta el factor de carga y hacer crecer el array si se pasa?
 
     // se suma 1 a pos (se busca el libre) o se hace un hash a key + 1? en realidad no se hace a key + 1 pq puede ser un string
     @Override
