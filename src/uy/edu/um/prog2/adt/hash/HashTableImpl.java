@@ -67,7 +67,7 @@ public class HashTableImpl <K,V> implements HashTable <K,V> {
                 i++;
             }
         }
-        if (loadFactor >= 0.75) {
+        if (loadFactor >= 0.75) { //loadfactor tomamos como maximo ideal 0,75.
             reHash();
         }
     }
@@ -78,7 +78,7 @@ public class HashTableImpl <K,V> implements HashTable <K,V> {
         table = new HashNode[size];
         for (int i = 0; i < oldTable.length; i++) {
             if (oldTable[i] != null) {
-                put(oldTable[i].getKey(), oldTable[i].getValue());
+                table[i] = oldTable[i];
             }
         }
         loadFactor = loadFactor / 2;
@@ -106,6 +106,36 @@ public class HashTableImpl <K,V> implements HashTable <K,V> {
 
     @Override
     public void remove(K key) {
+        int pos = funHash(key);
+        if (table[pos] != null && table[pos].getKey().equals(key)) {
+            table[pos] = null;
+            loadFactor = ((loadFactor * size) - 1) / size;
+        } else {
+            int i = pos + 1;
+            while (i != pos) {
+                if (i == size) {
+                    i = 0;
+                }
+                if (table[i] != null && table[i].getKey().equals(key)) {
+                    table[i] = null;
+                    loadFactor = ((loadFactor * size) - 1) / size;
+                    break;
+                }
+                i++;
+            }
+        }
+    }
 
+    @Override
+    public String toString() {
+        for (int i = 0; i < table.length; i++) {
+            if (table[i] != null){
+                System.out.println(table[i].getKey());
+            }
+            else{
+                System.out.println("null");
+            }
+        }
+        return null;
     }
 }
