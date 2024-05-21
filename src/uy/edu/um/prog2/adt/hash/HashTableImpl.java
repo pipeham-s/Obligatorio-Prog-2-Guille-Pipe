@@ -47,32 +47,36 @@ public class HashTableImpl <K,V> implements HashTable <K,V> {
     // se suma 1 a pos (se busca el libre) o se hace un hash a key + 1? en realidad no se hace a key + 1 pq puede ser un string
     @Override
     public void put(K key, V value) {
-        int pos = funHash(key);
-        HashNode<K, V> entrada = new HashNode<>(key, value);
-        if (table[pos] == null) {
-            table[pos] = entrada;
-            loadFactor = ((loadFactor * size) + 1) / size;
-        } else {
-            // si la posicion ya esta ocupada
-            // se busca la siguiente posicion libre
-            int i = pos + 1;
-            while (i != pos) {
-                if (i == size) {
-                    i = 0;
+        if (this.contains(key)== false) { // si la key ya esta usada no se va a agregar el nodo
+            int pos = funHash(key);
+            HashNode<K, V> entrada = new HashNode<>(key, value);
+            if (table[pos] == null) {
+                table[pos] = entrada;
+                loadFactor = ((loadFactor * size) + 1) / size;
+            } else {
+                // si la posicion ya esta ocupada
+                // se busca la siguiente posicion libre
+                int i = pos + 1;
+                while (i != pos) {
+                    if (i == size) {
+                        i = 0;
+                    }
+                    //seguira siendo O(1)?
+                    if (table[i] == null) {
+                        table[i] = entrada;
+                        loadFactor = ((loadFactor * size) + 1) / size;
+                        break;
+                    }
+                    i++;
                 }
-                //seguira siendo O(1)?
-                if (table[i] == null) {
-                    table[i] = entrada;
-                    loadFactor = ((loadFactor * size) + 1) / size;
-                    break;
-                }
-                i++;
+            }
+            if (loadFactor >= 0.75) { //loadfactor tomamos como maximo ideal 0,75. POner en informe
+                reHash();
             }
         }
-        if (loadFactor >= 0.75) { //loadfactor tomamos como maximo ideal 0,75.
-            reHash();
-        }
     }
+
+
 
     public void reHash () {
         HashNode<K, V>[] oldTable = table;
@@ -80,7 +84,8 @@ public class HashTableImpl <K,V> implements HashTable <K,V> {
         table = new HashNode[size];
         for (int i = 0; i < oldTable.length; i++) {
             if (oldTable[i] != null) {
-                table[i] = oldTable[i];
+                int pos2 = funHash(oldTable[i].getKey());
+                table[pos2] = oldTable[i];
             }
         }
         loadFactor = loadFactor / 2;
