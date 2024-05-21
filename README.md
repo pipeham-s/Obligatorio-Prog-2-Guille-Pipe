@@ -1,2 +1,7 @@
-# Obligatorio-Prog-2-Guille-Pipe
-Prog 2 2024
+# Obligatorio-Prog-2-Felipe-Ham-Y-Guillermo-Storace
+Primera entrega para el viernes 24/5
+Comentarios:
+1)	Como loadFactor tomamos como máximo el 0,75 debido a que gracias a lo buscado en internet hallamos que es el valor predeterminado que usa java, por ende, usaremos el mismo valor nosotros. Le llamamos máximo, ya que en casos particulares puede pasarse. En el caso que mi array sea de size = 2 y le ingrese un segundo nodo, en este caso el loadFactor pasa de 0,5 a 1. Pero automáticamente nuevo el array implementara la función reHash.
+2)	La clase Main simplemente la usamos para mostrar los hashes o arboles o cualquiera sea el algoritmo de ordenamiento usando. Por lo tanto, no cobra importancia practica en el obligatorio. Simplemente es una forma de chequeo usada por nosotros para ir corroborando la información.
+3)	Al ver el código, principalmente el de Hashes hay muchas anotaciones que son formas de comunicarnos dentro del equipo. Restar importancia en caso de que haya conceptos erróneos. Simplemente fue la forma que usamos para entender que estábamos haciendo. De todas formas, en los TADs anteriores fueron borrados ya que quedaron claros los conceptos.
+4)	El único TAD que no hicimos son los TADs de queue, stack y myLinkedList que fueron tomados de nuestro parcial. El resto si fueron creados por nosotros, aunque quizás para la resolución el obligatorio usaremos los proporcionados en el Moodle para una mayor velocidad y eficiencia en el manejo de los datos.
