@@ -1,4 +1,4 @@
-package uy.edu.um.prog2.adt.arboles.arbolBinario;
+package uy.edu.um.prog2.adt.arboles.arbolBusquedaBinaria;
 
 public interface MyBinarySearchTree <K extends Comparable<K>, T>{
     T find(K key);

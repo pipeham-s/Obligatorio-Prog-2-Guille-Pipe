@@ -1,5 +1,5 @@
-import uy.edu.um.prog2.adt.arboles.arbolBinario.MyBinarySearchTree;
-import uy.edu.um.prog2.adt.arboles.arbolBinario.MyBinarySearchTreeImpl;
+import uy.edu.um.prog2.adt.arboles.arbolBusquedaBinaria.MyBinarySearchTree;
+import uy.edu.um.prog2.adt.arboles.arbolBusquedaBinaria.MyBinarySearchTreeImpl;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -23,9 +23,20 @@ public class TestMyBinarySearchTree {
         MiArbol.insert("C", "C");
         MiArbol.insert("D", "D");
         MiArbol.insert("E", "E");
-        MiArbol.delete("E");
-        assertEquals(null, MiArbol.find("E"));
-        assertNotEquals("E", MiArbol.find("E"));
+        MiArbol.delete("C");
+        assertEquals(null, MiArbol.find("C"));
+        assertNotEquals("C", MiArbol.find("C"));
+        assertEquals("[A, B, D, E]", MiArbol.toString());
     } // CON ESTE TEST PASO TANTO EL INSERT COMO EL DELETE.
+
+    @Test
+    public void testOrder(){
+        MyBinarySearchTree <Integer, String> MiArbol = new MyBinarySearchTreeImpl<>(5, "A");
+        MiArbol.insert(1, "B");
+        MiArbol.insert(4, "C");
+        MiArbol.insert(6, "D");
+        MiArbol.insert(3, "E");
+        assertEquals("[1, 3, 4, 5, 6]", MiArbol.toString());
+    }
 
 }
