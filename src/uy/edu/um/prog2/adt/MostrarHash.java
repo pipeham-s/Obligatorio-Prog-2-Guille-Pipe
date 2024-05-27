@@ -4,7 +4,7 @@ import uy.edu.um.prog2.adt.hash.HashTable;
 import uy.edu.um.prog2.adt.hash.HashTableImpl;
 
 // no tiene ninguna aplicacion puntual, es para el probado de los algoritmos
-public class Main {
+public class MostrarHash {
     public static void main(String[] args) {
         HashTable<Integer, String> hashTable = new HashTableImpl<>(10);
         hashTable.put(4, "uno");
