@@ -1,3 +1,5 @@
+package testTADs;
+
 import org.junit.jupiter.api.Test;
 import uy.edu.um.prog2.adt.hash.HashTable;
 import uy.edu.um.prog2.adt.hash.HashTableImpl;
@@ -10,13 +12,14 @@ public class HashTableImplTests {
     public void testPutAndContains() {
         HashTable<Integer, String> hashTable = new HashTableImpl<>(10);
         hashTable.put(4, "uno");
+        hashTable.put(1, "uno");
         hashTable.put(2, "dos");
         hashTable.put(3, "tres");
         hashTable.put(4, "cuatro");
         hashTable.put(5, "cinco");
         hashTable.put(6, "seis");
-        hashTable.put(6, "siete");
-        hashTable.put(6, "ocho");
+        hashTable.put(7, "siete");
+        hashTable.put(8, "ocho");
 
         assertTrue(hashTable.contains(6));
         assertFalse(hashTable.contains(9));
