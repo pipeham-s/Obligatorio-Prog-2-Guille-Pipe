@@ -1,3 +1,5 @@
+package testTADs;
+
 import org.junit.jupiter.api.Test;
 import uy.edu.um.prog2.adt.arbolitos.binarytree.SearchBinaryTreeImpl;
 

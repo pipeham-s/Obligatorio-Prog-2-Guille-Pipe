@@ -1,3 +1,5 @@
+package testTADs;
+
 import uy.edu.um.prog2.adt.linkedlist.MyLinkedListImpl;
 import uy.edu.um.prog2.adt.queue.EmptyQueueException;
 import uy.edu.um.prog2.adt.stack.EmptyStackException;
