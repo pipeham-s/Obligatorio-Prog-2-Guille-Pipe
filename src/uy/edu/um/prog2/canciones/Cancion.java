@@ -1,7 +1,9 @@
 package uy.edu.um.prog2.canciones;
 
-import java.util.List;
+import uy.edu.um.prog2.artistas.Artista;
+
 import java.time.LocalDate;
+import java.util.List;
 
 public class Cancion {
     private String id;
@@ -17,7 +19,7 @@ public class Cancion {
     //la duracion de la cancion en milisegundos
     private int duration;
     private String albumName;   //NOMBRE ALBUM
-    private LocalDate albumReleaseDate//FECHA RELEASE ALBUM
+    private LocalDate albumReleaseDate;//FECHA RELEASE ALBUM
     private float danceability;
     private float energy;
     private int key;
@@ -30,3 +32,4 @@ public class Cancion {
     private float valence;
     private float tempo;
     private int timeSignature;
+}
