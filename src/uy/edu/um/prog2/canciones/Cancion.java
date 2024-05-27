@@ -32,4 +32,33 @@ public class Cancion {
     private float valence;
     private float tempo;
     private int timeSignature;
+
+
+    public Cancion(String id, String name, List<Artista> artists, int dialyRank, int dialyMovement, int weeklyMovement, String country, LocalDate snapshotDate, int popularity, boolean isExplicit, int duration, String albumName, LocalDate albumReleaseDate, float danceability, float energy, int key, float loudness, int mode, float speechiness, float acousticness, float instrumentalness, float liveness, float valence, float tempo, int timeSignature) {
+        this.id = id;
+        this.name = name;
+        this.artists = artists;
+        this.dialyRank = dialyRank;
+        this.dialyMovement = dialyMovement;
+        this.weeklyMovement = weeklyMovement;
+        this.country = country;
+        this.snapshotDate = snapshotDate;
+        this.popularity = popularity;
+        this.isExplicit = isExplicit;
+        this.duration = duration;
+        this.albumName = albumName;
+        this.albumReleaseDate = albumReleaseDate;
+        this.danceability = danceability;
+        this.energy = energy;
+        this.key = key;
+        this.loudness = loudness;
+        this.mode = mode;
+        this.speechiness = speechiness;
+        this.acousticness = acousticness;
+        this.instrumentalness = instrumentalness;
+        this.liveness = liveness;
+        this.valence = valence;
+        this.tempo = tempo;
+        this.timeSignature = timeSignature;
+    }
 }
