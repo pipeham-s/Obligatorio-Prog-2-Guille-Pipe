@@ -17,6 +17,27 @@ public class CSVLoader {
             Reader in = new FileReader("path al archivo csv");
 
             Iterable<CSVRecord> records = CSVFormat.DEFAULT
+                .withIgnoreEmptyLines()
+                .withTrim()
+                .parse(in);
+            int lineNumber = 0;
+            for (CSVRecord record : records) {
+                //Carga Canciones
+
+                if (record.size() != 26) {
+                    System.out.println("Línea " + lineNumber + " desordenada. Se omitirá.");
+                    continue;
+                }
+                Sting id = record.get(1);
+                String name = record.get(2);
+                String dailyRank = record.get(4);
+
+                if ()
 
 
-        } catch
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
