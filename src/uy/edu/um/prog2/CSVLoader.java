@@ -28,11 +28,11 @@ public class CSVLoader {
                     System.out.println("Línea " + lineNumber + " desordenada. Se omitirá.");
                     continue;
                 }
-                Sting id = record.get(1);
+                String id = record.get(1);
                 String name = record.get(2);
                 String dailyRank = record.get(4);
 
-                if ()
+                Artista artistaTemp = new Artista(record.get(3));
 
 
             }

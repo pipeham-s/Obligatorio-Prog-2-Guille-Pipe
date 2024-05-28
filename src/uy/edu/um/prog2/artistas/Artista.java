@@ -5,22 +5,13 @@ import uy.edu.um.prog2.adt.linkedlist.MyList;
 import uy.edu.um.prog2.canciones.Cancion;
 
 public class Artista {
-    private String usuario;
+
     private String nombreApellido;
     private MyList<Cancion> canciones;
 
-    public Artista(String usuario, String nombreApellido) {
-        this.usuario = usuario;
+    public Artista(String nombreApellido) {
         this.nombreApellido = nombreApellido;
         this.canciones = new MyLinkedListImpl<>();
-    }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
     }
 
     public String getNombreApellido() {
