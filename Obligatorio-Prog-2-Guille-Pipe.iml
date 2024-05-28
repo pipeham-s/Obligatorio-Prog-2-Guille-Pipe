@@ -37,5 +37,18 @@
         <jarDirectory url="file://$MODULE_DIR$/../commons-csv-1.11.0" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../commons-csv-1.11.0-bin/commons-csv-1.11.0" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../commons-csv-1.11.0-bin/commons-csv-1.11.0" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/../commons-csv-1.11.0-bin/commons-csv-1.11.0" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../commons-csv-1.11.0-bin/commons-csv-1.11.0" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
   </component>
 </module>
