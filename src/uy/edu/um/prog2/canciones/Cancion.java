@@ -36,32 +36,32 @@ public class Cancion {
     private int timeSignature;
 
 
-    public Cancion(String id, String name, List<Artista> artists, int dialyRank, int dialyMovement, int weeklyMovement, String country, LocalDate snapshotDate, int popularity, boolean isExplicit, int duration, String albumName, LocalDate albumReleaseDate, float danceability, float energy, int key, float loudness, int mode, float speechiness, float acousticness, float instrumentalness, float liveness, float valence, float tempo, int timeSignature) {
+    public Cancion(String id, String name) {
         this.id = id;
         this.name = name;
         this.artists = new MyLinkedListImpl<Artista>();
-        this.dialyRank = dialyRank;
-        this.dialyMovement = dialyMovement;
-        this.weeklyMovement = weeklyMovement;
-        this.country = country;
-        this.snapshotDate = snapshotDate;
-        this.popularity = popularity;
-        this.isExplicit = isExplicit;
-        this.duration = duration;
-        this.albumName = albumName;
-        this.albumReleaseDate = albumReleaseDate;
-        this.danceability = danceability;
-        this.energy = energy;
-        this.key = key;
-        this.loudness = loudness;
-        this.mode = mode;
-        this.speechiness = speechiness;
-        this.acousticness = acousticness;
-        this.instrumentalness = instrumentalness;
-        this.liveness = liveness;
-        this.valence = valence;
-        this.tempo = tempo;
-        this.timeSignature = timeSignature;
+        this.dialyRank = Integer.parseInt(null);
+        this.dialyMovement = Integer.parseInt(null);
+        this.weeklyMovement = Integer.parseInt(null);
+        this.country = null;
+        this.snapshotDate = null;
+        this.popularity = Integer.parseInt(null);
+        this.isExplicit = Boolean.parseBoolean(null);
+        this.duration = Integer.parseInt(null);
+        this.albumName = null;
+        this.albumReleaseDate = null;
+        this.danceability = Float.parseFloat(null);
+        this.energy = Float.parseFloat(null);
+        this.key = Integer.parseInt(null);
+        this.loudness = Float.parseFloat(null);
+        this.mode = Integer.parseInt(null);
+        this.speechiness = Float.parseFloat(null);
+        this.acousticness = Float.parseFloat(null);
+        this.instrumentalness = Float.parseFloat(null);
+        this.liveness = Float.parseFloat(null);
+        this.valence = Float.parseFloat(null);
+        this.tempo = Float.parseFloat(null);
+        this.timeSignature = Integer.parseInt(null);
     }
 
     public String getId() {
