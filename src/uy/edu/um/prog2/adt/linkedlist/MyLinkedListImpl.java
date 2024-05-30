@@ -233,4 +233,25 @@ public class MyLinkedListImpl<T> implements MyList<T>, MyQueue<T>, MyStack<T> {
         return valueToReturn;
     }
 
+    @Override
+    public int getPosition(T value) {
+        int position = -1;
+        int tempPosition = 0;
+        Node<T> temp = this.first;
+
+        // Se busca el nodo que corresponde con la posicion
+        while (temp != null && tempPosition != position) {
+
+            if (temp.getValue().equals(value)) {
+                position = tempPosition;
+            }
+
+            temp = temp.getNext();
+            tempPosition++;
+
+        }
+
+        return position;
+    }
+
 }

@@ -4,6 +4,7 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import uy.edu.um.prog2.adt.arbolitos.binarytree.BinaryTree;
 import uy.edu.um.prog2.adt.hash.HashTable;
+import uy.edu.um.prog2.adt.linkedlist.MyLinkedListImpl;
 import uy.edu.um.prog2.adt.linkedlist.MyList;
 import uy.edu.um.prog2.artistas.Artista;
 import uy.edu.um.prog2.canciones.Cancion;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CSVLoader {
-    public static void loadCSVData(MyList<Artista> artistas, HashTable<String, Cancion> canciones) {
+    public static void loadCSVData(MyLinkedListImpl<Artista> artistas, HashTable<String, Cancion> canciones) {
         Reader reader = new FileReader("C:\\Users\\Usuario\\OneDrive - Universidad de Montevideo\\PROG 2\\scv_reducido.xlsx");
         Iterable<CSVRecord> csvParser = CSVFormat.EXCEL.parse(reader);
 
@@ -29,12 +30,12 @@ public class CSVLoader {
             String[] artistasArray = artistasStr.split(",");
             for (String artista : artistasArray) {
                 artista = artista.trim();
-                Artista nuevoArtista = new Artista(artista); // problema aca lo crearia de vuelta y se inicializaria la lisya de canciones del artista como vacia
-                if (!artistas.contains(nuevoArtista)) {         // pense en hacerlo en un arbol pero habria que hacer que artist extienda comparable
-                    artistas.add(nuevoArtista);
-                } else {
-                    nuevoArtista.getCanciones().add(cancion);
+                Artista artistaTemp = new Artista(artista);
+                if (!artistas.contains(artistaTemp)) {
+                    artistas.add(artistaTemp);
+                    artistaTemp.getCanciones().add(cancion);
                 }
+
             }
 
 

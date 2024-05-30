@@ -73,4 +73,18 @@ public class TestLinkedList {
         assertNotEquals(4, ListaEnlazada.size());
     }
 
+    @Test
+    public void testGetPosition() {
+        ListaEnlazada.add("A");
+        ListaEnlazada.add("B");
+        ListaEnlazada.add("C");
+        ListaEnlazada.add("D");
+        ListaEnlazada.add("E");
+        assertEquals(0, ListaEnlazada.getPosition("A"));
+        assertEquals(1, ListaEnlazada.getPosition("B"));
+        assertEquals(2, ListaEnlazada.getPosition("C"));
+        assertEquals(3, ListaEnlazada.getPosition("D"));
+        assertEquals(4, ListaEnlazada.getPosition("E"));
+    }
+
 }
