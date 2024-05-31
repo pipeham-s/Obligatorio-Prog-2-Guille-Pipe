@@ -48,8 +48,8 @@ public class CSVLoader {
             String album = fila.get(4);
             String anio = fila.get(5);
 
-            Cancion cancion = new Cancion(nombreCancion, duracion, genero, album, anio);
-            artista.getCanciones().add(cancion);
+            Cancion cancion = new Cancion(idCancion,nombreCancion);
+           // artista.getCanciones().add(cancion);
             canciones.put(nombreCancion, cancion);
 
             //por cada artista de la cancion (artistasArray), lo busco y le agrego la cancion que cree
