@@ -45,6 +45,25 @@ public class HashTableImplTests {
         assertFalse(hashTable.contains(8));
     }
 
-
+    @Test
+    public void testGet() {
+        HashTable<Integer, String> hashTable = new HashTableImpl<>(10);
+        hashTable.put(1, "uno");
+        hashTable.put(2, "dos");
+        hashTable.put(3, "tres");
+        hashTable.put(4, "cuatro");
+        hashTable.put(5, "cinco");
+        hashTable.put(6, "seis");
+        hashTable.put(7, "siete");
+        hashTable.put(8, "ocho");
+        assertEquals("uno", hashTable.get(1));
+        assertEquals("dos", hashTable.get(2));
+        assertEquals("tres", hashTable.get(3));
+        assertEquals("cuatro", hashTable.get(4));
+        assertEquals("cinco", hashTable.get(5));
+        assertEquals("seis", hashTable.get(6));
+        assertEquals("siete", hashTable.get(7));
+        assertEquals("ocho", hashTable.get(8));
+    }
 
 }

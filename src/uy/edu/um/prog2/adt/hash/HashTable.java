@@ -5,5 +5,5 @@ public interface HashTable <K,V> {
     public boolean contains(K key);
     public void remove(K key);
 
-    V get(K artista);
+    public V get(K artista);
 }

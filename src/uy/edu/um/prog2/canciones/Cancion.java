@@ -5,14 +5,13 @@ import uy.edu.um.prog2.adt.linkedlist.MyList;
 import uy.edu.um.prog2.artistas.Artista;
 
 import java.time.LocalDate;
-import java.util.List;
 
 public class Cancion {
     private String id;
     private String name;
     private MyList<Artista> artists; // no creo que sea una lista pero vemo
-    private int dialyRank;
-    private int dialyMovement;
+    private int dailyRank;
+    private int dailyMovement;
     private int weeklyMovement;
     private String country;
     private LocalDate snapshotDate;
@@ -40,8 +39,8 @@ public class Cancion {
         this.id = id;
         this.name = name;
         this.artists = new MyLinkedListImpl<Artista>();
-        this.dialyRank = Integer.parseInt(null);
-        this.dialyMovement = Integer.parseInt(null);
+        this.dailyRank = Integer.parseInt(null);
+        this.dailyMovement = Integer.parseInt(null);
         this.weeklyMovement = Integer.parseInt(null);
         this.country = null;
         this.snapshotDate = null;
@@ -88,20 +87,20 @@ public class Cancion {
         this.artists = artists;
     }
 
-    public int getDialyRank() {
-        return dialyRank;
+    public int getDailyRank() {
+        return dailyRank;
     }
 
-    public void setDialyRank(int dialyRank) {
-        this.dialyRank = dialyRank;
+    public void setDailyRank(int dialyRank) {
+        this.dailyRank = dialyRank;
     }
 
-    public int getDialyMovement() {
-        return dialyMovement;
+    public int getDailyMovement() {
+        return dailyMovement;
     }
 
-    public void setDialyMovement(int dialyMovement) {
-        this.dialyMovement = dialyMovement;
+    public void setDailyMovement(int dailyMovement) {
+        this.dailyMovement = dailyMovement;
     }
 
     public int getWeeklyMovement() {
