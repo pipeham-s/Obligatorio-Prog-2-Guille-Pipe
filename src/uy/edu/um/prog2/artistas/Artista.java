@@ -32,6 +32,10 @@ public class Artista {
         this.canciones = canciones;
     }
 
+    public void addSong(Cancion cancion) {
+        canciones.add(cancion);
+    }
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

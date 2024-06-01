@@ -146,4 +146,23 @@ public class HashTableImpl <K,V> implements HashTable <K,V> {
         return null;
     }
 
+    @Override
+    public V get(K key) {
+        int pos = funHash(key);
+        if (table[pos] != null && table[pos].getKey().equals(key)) {
+            return table[pos].getValue();
+        } else {
+            int i = pos + 1;
+            while (i != pos) {
+                if (i == size) {
+                    i = 0;
+                }
+                if (table[i] != null && table[i].getKey().equals(key)) {
+                    return table[i].getValue();
+                }
+                i++;
+            }
+        }
+        return null;
+    }
 }

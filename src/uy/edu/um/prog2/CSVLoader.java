@@ -2,6 +2,8 @@ package uy.edu.um.prog2;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.apache.commons.csv.CSVParser;
+
 import uy.edu.um.prog2.adt.arbolitos.binarytree.BinaryTree;
 import uy.edu.um.prog2.adt.hash.HashTable;
 import uy.edu.um.prog2.adt.linkedlist.MyLinkedListImpl;
@@ -16,31 +18,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CSVLoader {
-    public static void loadCSVData(MyLinkedListImpl<Artista> artistas, HashTable<String, Cancion> canciones) {
+    public static void loadCSVData(HashTable<String,Artista> artistas, HashTable<String, Cancion> canciones) {
         Reader reader = new FileReader("C:\\Users\\Usuario\\OneDrive - Universidad de Montevideo\\PROG 2\\scv_reducido.xlsx");
         Iterable<CSVRecord> csvParser = CSVFormat.EXCEL.parse(reader);
 
         for (CSVRecord fila : csvParser) {
+            if (fila.getRecordNumber() == 1) {
+                continue;
+            }
+
             String idCancion = fila.get(0);
             String nombreCancion = fila.get(1);
 
-            Cancion cancion = new Cancion(idCancion, nombreCancion);
+            Cancion cancion = new Cancion(idCancion,nombreCancion);
 
+            // Logica para agregar artistas
             String artistasStr = fila.get(2);
             String[] artistasArray = artistasStr.split(",");
             for (String artista : artistasArray) {
                 artista = artista.trim();
-                Artista artistaTemp = new Artista(artista);
-                if (!artistas.contains(artistaTemp)) {
-                    artistas.add(artistaTemp);
-                    artistaTemp.getCanciones().add(cancion);
+                if (artistas.get(artista) != null) {
+                    artistas.get(artista).getCanciones().add(cancion);
+                    cancion.getArtists().add(artistas.get(artista));
+                } else {
+                    Artista nuevoArtista = new Artista(artista);
+                    artistas.put(artista, nuevoArtista);
+                    nuevoArtista.getCanciones().add(cancion);
+                    cancion.getArtists().add(nuevoArtista);
                 }
 
             }
-
-
-
-
 
 
             String duracion = fila.get(2);
@@ -48,7 +55,7 @@ public class CSVLoader {
             String album = fila.get(4);
             String anio = fila.get(5);
 
-            Cancion cancion = new Cancion(idCancion,nombreCancion);
+
            // artista.getCanciones().add(cancion);
             canciones.put(nombreCancion, cancion);
 
