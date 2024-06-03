@@ -61,6 +61,9 @@ public class CSVLoader {
             cancion.setWeeklyMovement(weekly_movement);
 
             String country = fila.get(6);
+            if (country.equals("")) {
+                country = "Global";
+            }
             cancion.setCountry(country);
 
             LocalDate snapshot_date = LocalDate.parse(fila.get(7));
