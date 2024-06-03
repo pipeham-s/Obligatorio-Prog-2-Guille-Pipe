@@ -37,17 +37,30 @@
         <jarDirectory url="file://$MODULE_DIR$/../commons-csv-1.11.0" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
-    <orderEntry type="module-library" exported="">
+    <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../commons-csv-1.11.0-bin/commons-csv-1.11.0" />
+          <root url="file://$MODULE_DIR$/../commons-io-2.16.1" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../commons-csv-1.11.0-bin/commons-csv-1.11.0" />
+          <root url="file://$MODULE_DIR$/../commons-io-2.16.1" />
         </SOURCES>
-        <jarDirectory url="file://$MODULE_DIR$/../commons-csv-1.11.0-bin/commons-csv-1.11.0" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/../commons-csv-1.11.0-bin/commons-csv-1.11.0" recursive="false" type="SOURCES" />
+        <jarDirectory url="file://$MODULE_DIR$/../commons-io-2.16.1" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../commons-io-2.16.1" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../commons-codec-1.17.0" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../commons-codec-1.17.0" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/../commons-codec-1.17.0" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../commons-codec-1.17.0" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
   </component>
