@@ -14,7 +14,6 @@ public class EstadisticaImpl implements Estadistica{
         //Libertad total del implementacion, simplemente que corra en un tiempo razonable y justificar su implementacion
         //es decir, que si las otras funciones demoran 2 seg que esta no demore 10 min.
     }
-
     @Override
     public MyLinkedListImpl<Cancion> getTop5CancionesQueMasAparecen(LocalDate diaDado) {
         return null;

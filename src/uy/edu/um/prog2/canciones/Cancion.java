@@ -10,29 +10,29 @@ public class Cancion {
     private String id;
     private String name;
     private MyList<Artista> artists; // no creo que sea una lista pero vemo
-    private int dailyRank;
-    private int dailyMovement;
-    private int weeklyMovement;
+    private float dailyRank;
+    private float dailyMovement;
+    private float weeklyMovement;
     private String country;
     private LocalDate snapshotDate;
-    private int popularity;
+    private float popularity;
     private boolean isExplicit;
     //la duracion de la cancion en milisegundos
-    private int duration;
+    private float duration;
     private String albumName;   //NOMBRE ALBUM
     private LocalDate albumReleaseDate;//FECHA RELEASE ALBUM    clase album???
     private float danceability;
     private float energy;
-    private int key;
+    private float key;
     private float loudness;
-    private int mode;
+    private float mode;
     private float speechiness;
     private float acousticness;
     private float instrumentalness;
     private float liveness;
     private float valence;
     private float tempo;
-    private int timeSignature;
+    private float timeSignature;
 
 
     public Cancion(String id, String name) {
@@ -63,6 +63,34 @@ public class Cancion {
         this.timeSignature = Integer.parseInt(null);
     }
 
+    public Cancion(String id, String name, MyList<Artista> artists, float dailyRank, float dailyMovement, float weeklyMovement, String country, LocalDate snapshotDate, float popularity, boolean isExplicit, float duration, String albumName, LocalDate albumReleaseDate, float danceability, float energy, float key, float loudness, float mode, float speechiness, float acousticness, float instrumentalness, float liveness, float valence, float tempo, float timeSignature) {
+        this.id = id;
+        this.name = name;
+        this.artists = artists;
+        this.dailyRank = dailyRank;
+        this.dailyMovement = dailyMovement;
+        this.weeklyMovement = weeklyMovement;
+        this.country = country;
+        this.snapshotDate = snapshotDate;
+        this.popularity = popularity;
+        this.isExplicit = isExplicit;
+        this.duration = duration;
+        this.albumName = albumName;
+        this.albumReleaseDate = albumReleaseDate;
+        this.danceability = danceability;
+        this.energy = energy;
+        this.key = key;
+        this.loudness = loudness;
+        this.mode = mode;
+        this.speechiness = speechiness;
+        this.acousticness = acousticness;
+        this.instrumentalness = instrumentalness;
+        this.liveness = liveness;
+        this.valence = valence;
+        this.tempo = tempo;
+        this.timeSignature = timeSignature;
+    }
+
     public String getId() {
         return id;
     }
@@ -87,27 +115,27 @@ public class Cancion {
         this.artists = artists;
     }
 
-    public int getDailyRank() {
+    public float getDailyRank() {
         return dailyRank;
     }
 
-    public void setDailyRank(int dialyRank) {
-        this.dailyRank = dialyRank;
+    public void setDailyRank(float dailyRank) {
+        this.dailyRank = dailyRank;
     }
 
-    public int getDailyMovement() {
+    public float getDailyMovement() {
         return dailyMovement;
     }
 
-    public void setDailyMovement(int dailyMovement) {
+    public void setDailyMovement(float dailyMovement) {
         this.dailyMovement = dailyMovement;
     }
 
-    public int getWeeklyMovement() {
+    public float getWeeklyMovement() {
         return weeklyMovement;
     }
 
-    public void setWeeklyMovement(int weeklyMovement) {
+    public void setWeeklyMovement(float weeklyMovement) {
         this.weeklyMovement = weeklyMovement;
     }
 
@@ -127,11 +155,11 @@ public class Cancion {
         this.snapshotDate = snapshotDate;
     }
 
-    public int getPopularity() {
+    public float getPopularity() {
         return popularity;
     }
 
-    public void setPopularity(int popularity) {
+    public void setPopularity(float popularity) {
         this.popularity = popularity;
     }
 
@@ -143,11 +171,11 @@ public class Cancion {
         isExplicit = explicit;
     }
 
-    public int getDuration() {
+    public float getDuration() {
         return duration;
     }
 
-    public void setDuration(int duration) {
+    public void setDuration(float duration) {
         this.duration = duration;
     }
 
@@ -183,11 +211,11 @@ public class Cancion {
         this.energy = energy;
     }
 
-    public int getKey() {
+    public float getKey() {
         return key;
     }
 
-    public void setKey(int key) {
+    public void setKey(float key) {
         this.key = key;
     }
 
@@ -199,11 +227,11 @@ public class Cancion {
         this.loudness = loudness;
     }
 
-    public int getMode() {
+    public float getMode() {
         return mode;
     }
 
-    public void setMode(int mode) {
+    public void setMode(float mode) {
         this.mode = mode;
     }
 
@@ -255,12 +283,11 @@ public class Cancion {
         this.tempo = tempo;
     }
 
-    public int getTimeSignature() {
+    public float getTimeSignature() {
         return timeSignature;
     }
 
-    public void setTimeSignature(int timeSignature) {
+    public void setTimeSignature(float timeSignature) {
         this.timeSignature = timeSignature;
     }
-
 }
