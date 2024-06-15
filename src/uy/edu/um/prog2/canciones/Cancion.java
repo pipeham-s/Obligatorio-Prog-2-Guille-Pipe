@@ -10,9 +10,9 @@ public class Cancion {
     private String id;
     private String name;
     private MyList<Artista> artists; // no creo que sea una lista pero vemo
-    private float dailyRank;
-    private float dailyMovement;
-    private float weeklyMovement;
+    private int dailyRank;
+    private int dailyMovement;
+    private int weeklyMovement;
     private String country;
     private LocalDate snapshotDate;
     private String albumName;   //NOMBRE ALBUM
@@ -25,14 +25,6 @@ public class Cancion {
         this.id = id;
         this.name = name;
         this.artists = new MyLinkedListImpl<Artista>();
-        this.dailyRank = Integer.parseInt(null);
-        this.dailyMovement = Integer.parseInt(null);
-        this.weeklyMovement = Integer.parseInt(null);
-        this.country = null;
-        this.snapshotDate = null;
-        this.albumName = null;
-        this.albumReleaseDate = null;
-        this.tempo = Float.parseFloat(null);
     }
 
 
@@ -64,7 +56,7 @@ public class Cancion {
         return dailyRank;
     }
 
-    public void setDailyRank(float dailyRank) {
+    public void setDailyRank(int dailyRank) {
         this.dailyRank = dailyRank;
     }
 
@@ -72,7 +64,7 @@ public class Cancion {
         return dailyMovement;
     }
 
-    public void setDailyMovement(float dailyMovement) {
+    public void setDailyMovement(int dailyMovement) {
         this.dailyMovement = dailyMovement;
     }
 
@@ -80,7 +72,7 @@ public class Cancion {
         return weeklyMovement;
     }
 
-    public void setWeeklyMovement(float weeklyMovement) {
+    public void setWeeklyMovement(int weeklyMovement) {
         this.weeklyMovement = weeklyMovement;
     }
 
