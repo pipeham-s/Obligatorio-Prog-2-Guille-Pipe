@@ -15,24 +15,10 @@ public class Cancion {
     private float weeklyMovement;
     private String country;
     private LocalDate snapshotDate;
-    private float popularity;
-    private boolean isExplicit;
-    //la duracion de la cancion en milisegundos
-    private float duration;
     private String albumName;   //NOMBRE ALBUM
     private LocalDate albumReleaseDate;//FECHA RELEASE ALBUM    clase album???
-    private float danceability;
-    private float energy;
-    private float key;
-    private float loudness;
-    private float mode;
-    private float speechiness;
-    private float acousticness;
-    private float instrumentalness;
-    private float liveness;
-    private float valence;
     private float tempo;
-    private float timeSignature;
+
 
 
     public Cancion(String id, String name) {
@@ -44,52 +30,11 @@ public class Cancion {
         this.weeklyMovement = Integer.parseInt(null);
         this.country = null;
         this.snapshotDate = null;
-        this.popularity = Integer.parseInt(null);
-        this.isExplicit = Boolean.parseBoolean(null);
-        this.duration = Integer.parseInt(null);
         this.albumName = null;
         this.albumReleaseDate = null;
-        this.danceability = Float.parseFloat(null);
-        this.energy = Float.parseFloat(null);
-        this.key = Integer.parseInt(null);
-        this.loudness = Float.parseFloat(null);
-        this.mode = Integer.parseInt(null);
-        this.speechiness = Float.parseFloat(null);
-        this.acousticness = Float.parseFloat(null);
-        this.instrumentalness = Float.parseFloat(null);
-        this.liveness = Float.parseFloat(null);
-        this.valence = Float.parseFloat(null);
         this.tempo = Float.parseFloat(null);
-        this.timeSignature = Integer.parseInt(null);
     }
 
-    public Cancion(String id, String name, MyList<Artista> artists, float dailyRank, float dailyMovement, float weeklyMovement, String country, LocalDate snapshotDate, float popularity, boolean isExplicit, float duration, String albumName, LocalDate albumReleaseDate, float danceability, float energy, float key, float loudness, float mode, float speechiness, float acousticness, float instrumentalness, float liveness, float valence, float tempo, float timeSignature) {
-        this.id = id;
-        this.name = name;
-        this.artists = artists;
-        this.dailyRank = dailyRank;
-        this.dailyMovement = dailyMovement;
-        this.weeklyMovement = weeklyMovement;
-        this.country = country;
-        this.snapshotDate = snapshotDate;
-        this.popularity = popularity;
-        this.isExplicit = isExplicit;
-        this.duration = duration;
-        this.albumName = albumName;
-        this.albumReleaseDate = albumReleaseDate;
-        this.danceability = danceability;
-        this.energy = energy;
-        this.key = key;
-        this.loudness = loudness;
-        this.mode = mode;
-        this.speechiness = speechiness;
-        this.acousticness = acousticness;
-        this.instrumentalness = instrumentalness;
-        this.liveness = liveness;
-        this.valence = valence;
-        this.tempo = tempo;
-        this.timeSignature = timeSignature;
-    }
 
     public String getId() {
         return id;
@@ -155,30 +100,6 @@ public class Cancion {
         this.snapshotDate = snapshotDate;
     }
 
-    public float getPopularity() {
-        return popularity;
-    }
-
-    public void setPopularity(float popularity) {
-        this.popularity = popularity;
-    }
-
-    public boolean isExplicit() {
-        return isExplicit;
-    }
-
-    public void setExplicit(boolean explicit) {
-        isExplicit = explicit;
-    }
-
-    public float getDuration() {
-        return duration;
-    }
-
-    public void setDuration(float duration) {
-        this.duration = duration;
-    }
-
     public String getAlbumName() {
         return albumName;
     }
@@ -195,99 +116,11 @@ public class Cancion {
         this.albumReleaseDate = albumReleaseDate;
     }
 
-    public float getDanceability() {
-        return danceability;
-    }
-
-    public void setDanceability(float danceability) {
-        this.danceability = danceability;
-    }
-
-    public float getEnergy() {
-        return energy;
-    }
-
-    public void setEnergy(float energy) {
-        this.energy = energy;
-    }
-
-    public float getKey() {
-        return key;
-    }
-
-    public void setKey(float key) {
-        this.key = key;
-    }
-
-    public float getLoudness() {
-        return loudness;
-    }
-
-    public void setLoudness(float loudness) {
-        this.loudness = loudness;
-    }
-
-    public float getMode() {
-        return mode;
-    }
-
-    public void setMode(float mode) {
-        this.mode = mode;
-    }
-
-    public float getSpeechiness() {
-        return speechiness;
-    }
-
-    public void setSpeechiness(float speechiness) {
-        this.speechiness = speechiness;
-    }
-
-    public float getAcousticness() {
-        return acousticness;
-    }
-
-    public void setAcousticness(float acousticness) {
-        this.acousticness = acousticness;
-    }
-
-    public float getInstrumentalness() {
-        return instrumentalness;
-    }
-
-    public void setInstrumentalness(float instrumentalness) {
-        this.instrumentalness = instrumentalness;
-    }
-
-    public float getLiveness() {
-        return liveness;
-    }
-
-    public void setLiveness(float liveness) {
-        this.liveness = liveness;
-    }
-
-    public float getValence() {
-        return valence;
-    }
-
-    public void setValence(float valence) {
-        this.valence = valence;
-    }
-
     public float getTempo() {
         return tempo;
     }
 
     public void setTempo(float tempo) {
         this.tempo = tempo;
-    }
-
-    public float getTimeSignature() {
-        return timeSignature;
-    }
-
-    public void setTimeSignature(float timeSignature) {
-        this.timeSignature = timeSignature;
     }
 }
