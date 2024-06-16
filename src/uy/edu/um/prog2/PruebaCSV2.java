@@ -11,13 +11,13 @@ import java.io.IOException;
 import java.time.LocalDate;
 
 public class PruebaCSV2 {
-    public void CSVReader() {
+    public static void CSVReader() {
         String record;
         HashTable<String, Cancion> canciones = new HashTableImpl<>(1000000);
         HashTable<String, Artista> artistas = new HashTableImpl<>(1000000);
 
-        try (BufferedReader br = new BufferedReader(new FileReader("archivo.csv"))) {
-            //Lee la primer linea, que no nos importa
+        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Usuario\\OneDrive - Universidad de Montevideo\\PROG 2\\scv_reducido.csv.xlsx"))) {
+            //Encabezado
             br.readLine();
 
             while ((record = br.readLine()) != null) {
