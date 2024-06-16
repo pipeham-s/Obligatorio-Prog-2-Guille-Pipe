@@ -21,6 +21,35 @@ public class MyLinkedListImpl<T> implements MyList<T>, MyQueue<T>, MyStack<T> {
         addToTheEnd(value);
     }
 
+    @Override
+    public void insert(T value, int position) {
+        if (position == 0) {
+            addToBeginning(value);
+        } else if (position == size()) {
+            addToTheEnd(value);
+        } else {
+            Node<T> elementToAdd = new Node<>(value);
+            Node<T> temp = this.first;
+            int tempPosition = 0;
+
+            while (temp != null && tempPosition != position - 1) {
+
+                temp = temp.getNext();
+                tempPosition++;
+
+            }
+
+            if (tempPosition == position - 1) {
+
+                elementToAdd.setNext(temp.getNext());
+                temp.setNext(elementToAdd);
+
+            } else {
+                // si no se llego a la posicion no se realiza nada
+            }
+        }
+    }
+
     private void addToBeginning(T value) {
         if (value != null) {
 

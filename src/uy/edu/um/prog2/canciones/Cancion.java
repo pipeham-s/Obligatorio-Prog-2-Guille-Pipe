@@ -18,15 +18,22 @@ public class Cancion {
     private String albumName;   //NOMBRE ALBUM
     private LocalDate albumReleaseDate;//FECHA RELEASE ALBUM    clase album???
     private float tempo;
+    private int contadorParaVerAparicionesEnTop50;
 
-
-
-    public Cancion(String id, String name) {
+    public Cancion(String id, String name, String albumName, LocalDate albumReleaseDate, float tempo) {
         this.id = id;
         this.name = name;
         this.artists = new MyLinkedListImpl<Artista>();
+        this.contadorParaVerAparicionesEnTop50 = 0;
     }
 
+    public int getContadorParaVerAparicionesEnTop50() {
+        return contadorParaVerAparicionesEnTop50;
+    }
+
+    public void setContadorParaVerAparicionesEnTop50(int contadorParaVerAparicionesEnTop50) {
+        this.contadorParaVerAparicionesEnTop50 = contadorParaVerAparicionesEnTop50;
+    }
 
     public String getId() {
         return id;
@@ -52,7 +59,7 @@ public class Cancion {
         this.artists = artists;
     }
 
-    public float getDailyRank() {
+    public int getDailyRank() {
         return dailyRank;
     }
 

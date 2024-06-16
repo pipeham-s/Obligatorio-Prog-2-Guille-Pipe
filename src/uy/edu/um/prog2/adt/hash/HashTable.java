@@ -6,4 +6,5 @@ public interface HashTable <K,V> {
     public void remove(K key);
 
     public V get(K artista);
+
 }

@@ -1,5 +1,7 @@
 package uy.edu.um.prog2.adt.hash;
 
+import static java.lang.Math.abs;
+
 public class HashTableImpl <K,V> implements HashTable <K,V> {
 
     private int size;
@@ -39,7 +41,7 @@ public class HashTableImpl <K,V> implements HashTable <K,V> {
         this.loadFactor = loadFactor;
     }
 
-    private int funHash(K key) {return key.hashCode() % size;} //sin usar hashcode la idea es hallar el modulo de la division la llave por el tamaño del arreglo
+    private int funHash(K key) {return abs(key.hashCode() % size);} //sin usar hashcode la idea es hallar el modulo de la division la llave por el tamaño del arreglo
 
     // hash tiene que ser para cualquier variable? o para enteros?
     // put tiene que tener en cuenta el factor de carga y hacer crecer el array si se pasa?
@@ -165,4 +167,6 @@ public class HashTableImpl <K,V> implements HashTable <K,V> {
         }
         return null;
     }
+
+
 }
