@@ -57,6 +57,7 @@ public class EstadisticaImpl implements Estadistica{
                 }
             }
         }
+        resetarLosContadores(cancionesxFecha.get(diaDado));
         return top5Canciones;
         //Hay que recorrer todos los top50 y ver las 5 canciones que mas aparezcan, esto tiene que darse en orden n.
         //Que devuelva orden n en promedio implica que la estructura a usar es una lista enlazada o alguna variante de esta como stack o queue?
@@ -76,13 +77,52 @@ public class EstadisticaImpl implements Estadistica{
             }
         }
     }
+
+    public void resetarLosContadores (MyList<Cancion> canciones){
+        for (int i = 0; i < canciones.size(); i++) {
+            canciones.get(i).setContadorParaVerAparicionesEnTop50(0);
+        }
+    }
+
+    public void resetarLosContadoresArtistas (MyList<Artista> artistas){
+        for (int i = 0; i < artistas.size(); i++) {
+            artistas.get(i).setContadorParaVerAparicionesEnTop50(0);
+        }
+    }
     @Override
     public MyList<Artista> get7ArtistasQueMasAparecenEnTop50(LocalDate fechaInicio, LocalDate fechaFin) {
-        return null;
+        if ((fechaInicio == null) || fechaInicio.isAfter(fechaFin)) {
+            throw new InformacionInvalida();
+        }
+        MyList<Artista> top7Artistas = new MyLinkedListImpl<>();
+        for (int i = 0; i < fechaFin.getDayOfYear() - fechaInicio.getDayOfYear(); i++) {
+            LocalDate fecha = fechaInicio.plusDays(i);
+            for (int j = 0; j < 50; j++) {
+                Artista temp = (Artista) ordenarTopArtistas(fecha).get(j);
+                temp.setContadorParaVerAparicionesEnTop50(temp.getContadorParaVerAparicionesEnTop50() + 1);
+                if (top7Artistas.size() < 7){
+                    top7Artistas.add(temp);
+                } else{
+                    if (temp.getContadorParaVerAparicionesEnTop50() > top7Artistas.get(6).getContadorParaVerAparicionesEnTop50()){
+                        top7Artistas.remove(top7Artistas.get(6));
+                        top7Artistas.add(temp);
+                    }
+                }
+            }
+        }
+        return top7Artistas;
         //Libertad total del implementacion, simplemente que corra en un tiempo razonable y justificar su implementacion
         //es decir, que si las otras funciones demoran 2 seg que esta no demore 10 min.
     }
 
+    public MyList<Artista> ordenarTopArtistas (LocalDate fecha){
+        MyList<Artista> topArtistas = new MyLinkedListImpl<>();
+        for (int i = 0; i < 50; i++) {
+            Artista temp = (Artista) ordenarTopArtistas(fecha).get(i);
+            topArtistas.insert(temp, temp.getContadorParaVerAparicionesEnTop50());
+        }
+        return topArtistas;
+    }
     @Override
     public int cantidadDeVecesQueApareceUnArtistaEnUnTop50(Artista artista, LocalDate fecha) {
         return 0;

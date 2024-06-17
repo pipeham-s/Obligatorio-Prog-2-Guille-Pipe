@@ -10,10 +10,20 @@ public class Artista {
 
     private String nombreApellido;
     private MyList<Cancion> canciones;
+    private int contadorParaVerAparicionesEnTop50;
 
     public Artista(String nombreApellido) {
         this.nombreApellido = nombreApellido;
         this.canciones = new MyLinkedListImpl<>();
+        this.contadorParaVerAparicionesEnTop50 = 0;
+    }
+
+    public int getContadorParaVerAparicionesEnTop50() {
+        return contadorParaVerAparicionesEnTop50;
+    }
+
+    public void setContadorParaVerAparicionesEnTop50(int contadorParaVerAparicionesEnTop50) {
+        this.contadorParaVerAparicionesEnTop50 = contadorParaVerAparicionesEnTop50;
     }
 
     public String getNombreApellido() {
