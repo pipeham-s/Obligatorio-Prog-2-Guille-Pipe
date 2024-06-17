@@ -55,12 +55,6 @@ public class CSVLoader {
                 int daily_rank = Integer.parseInt(fila.get(3));
                 cancion.setDailyRank(daily_rank);
 
-                int daily_movement = Integer.parseInt(fila.get(4));
-                cancion.setDailyMovement(daily_movement);
-
-                int weekly_movement = Integer.parseInt(fila.get(5));
-                cancion.setWeeklyMovement(weekly_movement);
-
                 String country = fila.get(6);
                 if (country.equals("")) {
                     country = "Global";

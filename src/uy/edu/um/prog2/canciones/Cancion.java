@@ -1,5 +1,7 @@
 package uy.edu.um.prog2.canciones;
 
+import uy.edu.um.prog2.adt.hash.HashTable;
+import uy.edu.um.prog2.adt.hash.HashTableImpl;
 import uy.edu.um.prog2.adt.linkedlist.MyLinkedListImpl;
 import uy.edu.um.prog2.adt.linkedlist.MyList;
 import uy.edu.um.prog2.artistas.Artista;
@@ -11,28 +13,26 @@ public class Cancion {
     private String name;
     private MyList<Artista> artists; // no creo que sea una lista pero vemo
     private int dailyRank;
-    private int dailyMovement;
-    private int weeklyMovement;
     private String country;
     private LocalDate snapshotDate;
     private String albumName;   //NOMBRE ALBUM
     private LocalDate albumReleaseDate;//FECHA RELEASE ALBUM    clase album???
     private float tempo;
-    private int contadorParaVerAparicionesEnTop50;
+    private HashTable<LocalDate,Integer> aparicionesPorDia;
 
-    public Cancion(String id, String name, String albumName, LocalDate albumReleaseDate, float tempo) {
+    public Cancion(String id, String name) {
         this.id = id;
         this.name = name;
         this.artists = new MyLinkedListImpl<Artista>();
-        this.contadorParaVerAparicionesEnTop50 = 0;
+        this.aparicionesPorDia = new HashTableImpl<>(400);
     }
 
-    public int getContadorParaVerAparicionesEnTop50() {
-        return contadorParaVerAparicionesEnTop50;
+    public HashTable<LocalDate, Integer> getAparicionesPorDia() {
+        return aparicionesPorDia;
     }
 
-    public void setContadorParaVerAparicionesEnTop50(int contadorParaVerAparicionesEnTop50) {
-        this.contadorParaVerAparicionesEnTop50 = contadorParaVerAparicionesEnTop50;
+    public void setAparicionesPorDia(HashTable<LocalDate,Integer> aparicionesPorDia) {
+        this.aparicionesPorDia = aparicionesPorDia;
     }
 
     public String getId() {
@@ -65,22 +65,6 @@ public class Cancion {
 
     public void setDailyRank(int dailyRank) {
         this.dailyRank = dailyRank;
-    }
-
-    public float getDailyMovement() {
-        return dailyMovement;
-    }
-
-    public void setDailyMovement(int dailyMovement) {
-        this.dailyMovement = dailyMovement;
-    }
-
-    public float getWeeklyMovement() {
-        return weeklyMovement;
-    }
-
-    public void setWeeklyMovement(int weeklyMovement) {
-        this.weeklyMovement = weeklyMovement;
     }
 
     public String getCountry() {
