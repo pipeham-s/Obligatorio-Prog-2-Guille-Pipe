@@ -13,7 +13,6 @@ public class Cancion {
     private String name;
     private MyList<Artista> artists; // no creo que sea una lista pero vemo
     private int dailyRank;
-    private String country;
     private LocalDate snapshotDate;
     private String albumName;   //NOMBRE ALBUM
     private LocalDate albumReleaseDate;//FECHA RELEASE ALBUM    clase album???
@@ -65,14 +64,6 @@ public class Cancion {
 
     public void setDailyRank(int dailyRank) {
         this.dailyRank = dailyRank;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 
     public LocalDate getSnapshotDate() {

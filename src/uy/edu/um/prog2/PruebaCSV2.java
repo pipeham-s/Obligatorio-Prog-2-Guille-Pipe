@@ -16,7 +16,7 @@ public class PruebaCSV2 {
     private HashTable<String, Artista> artistas;
     private HashTable<String, Cancion> canciones;
 
-    public PruebaCSV2(HashTable<LocalDate, HashTable<String, MyList<Cancion>>> topDiaPais) {
+    public PruebaCSV2(HashTable<LocalDate, HashTable<String, MyList<Cancion>>> topDiaPais) throws Exception {
         this.artistas = new HashTableImpl<>(1000000);
         this.canciones = new HashTableImpl<>(1000000);
         this.topDiaPais = new HashTableImpl<>(400); //son 209 dias, lo hago un poco mas grande
@@ -84,83 +84,18 @@ public class PruebaCSV2 {
                 if (country.isEmpty()) {
                     country = "Global";
                 }
-                cancion.setCountry(country);
 
-                LocalDate date = LocalDate.parse(row[7].replace("\"", ""));
+                LocalDate fecha = LocalDate.parse(row[7].replace("\"", ""));
 
                 float tempo = Float.parseFloat(row[23].replace("\"", ""));
+                cancion.setTempo(tempo);
 
                 // check if the song is in the songs hash
-                Cancion cancion = canciones.get(idCancion);
-                if (cancion == null) {
-                    cancion = new Cancion(idCancion, nombreCancion);
-                    canciones.put(idCancion, cancion);
-                    songKeys[songCounter] = spotifyId;
-                    songCounter += 1;
-                } else {
-                    Integer appearances = cancion.getAppearances().get(date);
-                    if (appearances == null) {
-                        cancion.getAppearances().put(date, 1);
-                    } else {
-                        cancion.getAppearances().setValueForKey(date, appearances + 1);
-                    }
-                }
-
-                // check artists in the singer hash
-                for (String name : artistNames) {
-                    name = name.trim();
-                    HashTable<LocalDate, Integer> songRanking = artists.get(name);
-                    if (songRanking == null) { // the artist hasn't been initialized yet
-                        HashTable<LocalDate, Integer> artistRanking = new HashTableImpl<LocalDate, Integer>(300);
-                        artistRanking.put(date, 1); // when we encounter an artist for the first time we add his
-                        // participation in the ranking
-                        artists.put(name, artistRanking); // we must check the size later
-                        artistKeys[artistCounter] = name;
-                        artistCounter += 1;
-                    } else { // the singer already existed
-                        Integer appearances = songRanking.get(date); // get the amount of times the artist poped up,on a certain date
-                        if (appearances == null) {
-                            songRanking.put(date, 1);
-                        } else {
-                            songRanking.setValueForKey(date, appearances + 1);
-                        }
-                    }
-                }
-
-                // now begins the triple Hash setup
-
-                HashTable<String, HashTable<Integer, Song>> HashForDate = dailyRanks.get(date);
-                if (HashForDate == null) {
-                    HashForDate = new HashTableImpl<String, HashTable<Integer, Song>>(103); //
-                    dailyRanks.put(date, HashForDate);
-                }
-                HashTable<Integer, Song> RankingDateCountry = HashForDate.get(countryName);
-                if (RankingDateCountry == null) {
-                    RankingDateCountry = new HashTableImpl<Integer, Song>(71);
-                    // there are 50 elements but for efficiency we chose 75 to get a loading factor of 0.7 aprox
-                    HashForDate.put(countryName, RankingDateCountry);
-                }
-                while (true) {
-                    try {
-                        RankingDateCountry.put(dailyRank, cancion);
-                        break;
-                    } catch (KeyAlreadyExistsException _) {
-                        dailyRank += 1;
-                        if (dailyRank == 51) break;
-                    }
-                }
-
 
             }
         } catch (Exception _) {
             throw new Exception();
-        } finally {
-            try {
-                reader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+
 
     }
 }
