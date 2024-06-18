@@ -71,15 +71,15 @@ public class CSVReader {
         MyList<String> listaPaises = new MyLinkedListImpl<>();
         HashTable<String,MyList<Cancion>> diaCanciones = new HashTableImpl<>(1000);
         MyList<Artista> listaArtistas = new MyLinkedListImpl<>();
-
-        try (BufferedReader br = new BufferedReader(new FileReader("universal_top_spotify_songs.csv"))) {
+        System.out.println("Leyendo archivo");
+        try (BufferedReader br = new BufferedReader(new FileReader("csv_reducido.csv"))) {
             //Lee la primer linea, que no nos importa
             br.readLine();
 
             while ((line = br.readLine()) != null) {
 
                 //Borra los ;; del final
-                //line = line.substring(1, line.length() - 2);
+                line = line.substring(1, line.length() - 2);
 
                 // Separa por la coma
                 String[] fields = line.split("\",\"");
@@ -116,31 +116,36 @@ public class CSVReader {
                     fields[7],                   // snapshotDate
                     Float.parseFloat(fields[23]) // tempo
                 );
-
+                System.out.println("Leyendo canciones");
                 //Agrega la cancion al hash
                 if(diaPaisTop50.search(cancion.getSnapshotDate()) == -1) {
                     diaPaisTop50.put(cancion.getSnapshotDate(), new HashTableImpl<>(148)); //doble de paises para mas espacio
                 }
-                if(diaPaisTop50.searchNode(cancion.getSnapshotDate()).getValue().search(cancion.getCountry()) == -1){
-                    diaPaisTop50.searchNode(cancion.getSnapshotDate()).getValue().put(cancion.getCountry(), new MyLinkedListImpl<>());
+                System.out.println("1");
+                if (diaPaisTop50.searchNode(cancion.getSnapshotDate()).getValue().search(cancion.getCountry()) == -1) {
+                    diaPaisTop50.searchNode(cancion.getSnapshotDate()).getValue().put(cancion.getCountry(), new MyLinkedListImpl<>()); //esta linea no esta funcionando, no se porque
+
                 }
+                System.out.println("2");
                 diaPaisTop50.searchNode(cancion.getSnapshotDate()).getValue().searchNode(cancion.getCountry()).getValue().add(cancion);
 
                 if(!arbolTempos.contains(cancion.getTempo())){
                     arbolTempos.add(cancion.getTempo(), new MyLinkedListImpl<>());
                 }
                 arbolTempos.find(cancion.getTempo()).add(cancion);
-
+                System.out.println("3");
                 // agrega las canciones al diaCanciones
 
                 if(diaCanciones.search(cancion.getSnapshotDate()) == -1) {
                     diaCanciones.put(cancion.getSnapshotDate(), new MyLinkedListImpl<>());
                 }
                 diaCanciones.searchNode(cancion.getSnapshotDate()).getValue().add(cancion);
+                System.out.println("Cancion leida y agregada");
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println("Fin de la lectura");
         //setea los tads
         setDiaPaisTop50(diaPaisTop50);
         setArbolTempos(arbolTempos);

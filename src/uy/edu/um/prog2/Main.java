@@ -2,9 +2,7 @@ package uy.edu.um.prog2;
 
 import uy.edu.um.prog2.adt.arbolitos.binarytree.BinaryTreeInterface;
 import uy.edu.um.prog2.adt.hash.HashTable;
-import uy.edu.um.prog2.adt.hash.HashTableImpl;
 import uy.edu.um.prog2.adt.linkedlist.MyList;
-import uy.edu.um.prog2.artistas.Artista;
 import uy.edu.um.prog2.canciones.Cancion;
 
 import java.io.IOException;
@@ -24,7 +22,7 @@ public class Main {
         HashTable<String,MyList<Cancion>> diaCanciones = C.getDiaCanciones();
 
         System.out.println(paises.size());
-
+        System.out.println("Fin del programa");
     }
 
 }
