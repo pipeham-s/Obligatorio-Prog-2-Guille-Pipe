@@ -79,7 +79,7 @@ public class CSVReader {
             while ((line = br.readLine()) != null) {
 
                 //Borra los ;; del final
-                line = line.substring(1, line.length() - 2);
+                //line = line.substring(1, line.length() - 2);
 
                 // Separa por la coma
                 String[] fields = line.split("\",\"");
@@ -96,9 +96,16 @@ public class CSVReader {
                     else{
                         artists = artists + ", " + art;
                     }
+                    if (!listaArtistas.contains(artista)) {
+                        listaArtistas.add(artista);
+                    }
                 }
 
                 //Agrega los paises a la lista de paises
+                if (fields[6].isEmpty()) {
+                    fields[6] = "Global";
+                }
+
                 if (!listaPaises.contains(fields[6])) {
                     listaPaises.add(fields[6]);
                 }
