@@ -1,5 +1,6 @@
 package uy.edu.um.prog2.estadisticas;
 
+/*
 import uy.edu.um.prog2.adt.hash.HashTable;
 import uy.edu.um.prog2.adt.linkedlist.MyLinkedListImpl;
 import uy.edu.um.prog2.adt.linkedlist.MyList;
@@ -39,7 +40,7 @@ public class EstadisticaImpl implements Estadistica{
 
     }
     @Override
-    public MyList<Cancion> getTop5CancionesQueMasAparecen(String diaDado, HashTable<String, MyList<Cancion>> cancionesxFecha) {
+   public MyList<Cancion> getTop5CancionesQueMasAparecen(String diaDado, HashTable<String, MyList<Cancion>> cancionesxFecha) {
         if (cancionesxFecha.get(diaDado) == null) {
             throw new InformacionInvalida();
         }
@@ -137,3 +138,4 @@ public class EstadisticaImpl implements Estadistica{
         //es decir, que si las otras funciones demoran 2 seg que esta no demore 10 min.
     }
 }
+*/

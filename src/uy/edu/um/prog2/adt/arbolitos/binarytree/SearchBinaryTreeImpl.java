@@ -1,129 +1,155 @@
-/**
- * 
- */
 package uy.edu.um.prog2.adt.arbolitos.binarytree;
 
-import java.util.ArrayList;
-import java.util.List;
+import uy.edu.um.prog2.adt.linkedlist.MyLinkedListImpl;
+import uy.edu.um.prog2.adt.linkedlist.MyList;
 
-/**
- * @author pegardan
- * @param <T>
- *
- */
-public class SearchBinaryTreeImpl<T extends Comparable<T>> implements BinaryTree<T> {
+public class SearchBinaryTreeImpl<K extends Comparable<K>, V> implements BinaryTreeInterface<K,V> {
 
-	private TreeNode<T> root;
+	private TreeNode<K, V> root;
 
-	public void add(T oElement) {
-		TreeNode<T> oElementToAdd = new TreeNode<T>(oElement);
+	@Override
+	public void add(K key, V value) {
+		TreeNode<K, V> elementToAdd = new TreeNode<>(key, value);
 
 		if (root == null) {
 
-			root = oElementToAdd;
+			root = elementToAdd;
 
 		} else {
 
-			root.add(oElement);
+			root.add(key, value);
 
 		}
 	}
 
-	public boolean contains(T oElement) {
+	public V find(K key) {
 
-		return contains(oElement, root);
+		return find(key, root);
 	}
 
-	private boolean contains(T oElementToSearch, TreeNode<T> oTree) {
-		boolean bContains = false;
-		
-		if (oTree != null) {
+	private V find(K keyToSearch, TreeNode<K, V> root) {
+		V value = null;
 
-			int nValue = oElementToSearch.compareTo(oTree.getValue());
-					
+		if (root != null) {
+
+			int nValue = keyToSearch.compareTo(root.getKey());
+
 			if (nValue == 0) {
-				
-				bContains = true;
-			
+
+				value = root.getValue();
+
 			} else if (nValue > 0) {
-				
-				bContains = contains(oElementToSearch, oTree.getRight());
-		
+
+				value = find(keyToSearch, root.getRight());
+
 			} else {
-				
-				bContains = contains(oElementToSearch, oTree.getLeft());
-			
+
+				value = find(keyToSearch, root.getLeft());
+
 			}
 
 		}
 
-		return bContains;
+		return value;
 	}
 
-	public void remove(T oElement) {
+	public boolean contains(K key) {
+
+		return contains(key, root);
+	}
+
+	private boolean contains(K keyToSearch, TreeNode<K, V> root) {
+		boolean contains = false;
 
 		if (root != null) {
 
-			root.remove(oElement);
+			int nValue = keyToSearch.compareTo(root.getKey());
 
-		}
-
-	}
-	
-	public T find(T oElement) {
-
-		return find(oElement, root);
-	}
-
-	@Override
-	public List<T> preOrder() {
-		return null;
-	}
-
-	@Override
-	public List<T> posOrder() {
-		return null;
-	}
-
-	private T find(T oElementToSearch, TreeNode<T> oTree) {
-		T oSearchedElement = null;
-		
-		if (oTree != null) {
-
-			int nValue = oElementToSearch.compareTo(oTree.getValue());
-					
 			if (nValue == 0) {
-				
-				oSearchedElement = oTree.getValue();
-			
+
+				contains = true;
+
 			} else if (nValue > 0) {
-				
-				oSearchedElement = find(oElementToSearch, oTree.getRight());
-		
+
+				contains = contains(keyToSearch, root.getRight());
+
 			} else {
-				
-				oSearchedElement = find(oElementToSearch, oTree.getLeft());
-			
+
+				contains = contains(keyToSearch, root.getLeft());
+
 			}
 
 		}
 
-		return oSearchedElement;
+		return contains;
 	}
 
 
-	public List<T> inOrder() {
-		List<T> colValues = new ArrayList<T>();
+	@Override
+	public void remove(K key) {
 
 		if (root != null) {
 
-			colValues.addAll(root.inOrderTraverse());
+			root = root.remove(key);
 
 		}
 
-		return colValues;
 	}
 
+	@Override
+	public MyList<K> inOrder() {
+		MyList<K> inOrderTraverse = new MyLinkedListImpl<>();
 
+		if (root != null) {
+
+			root.inOrderTraverse(inOrderTraverse);
+
+		}
+
+		return inOrderTraverse;
+	}
+
+	@Override
+	public MyList<TreeNode<K, V>> inOrderNode() {
+		MyList<TreeNode<K, V>> inOrderTraverseNode = new MyLinkedListImpl<>();
+
+		if (root != null) {
+
+			root.inOrderTraverseNode(inOrderTraverseNode);
+
+		}
+
+		return inOrderTraverseNode;
+	}
+
+	public MyList<K> postOrder() {
+		MyList<K> postOrderTraverse = new MyLinkedListImpl<>();
+
+		if (root != null) {
+
+			root.postOrderTraverse(postOrderTraverse);
+
+		}
+
+		return postOrderTraverse;
+	}
+
+	public MyList<K> preOrder() {
+		MyList<K> preOrderTraverse = new MyLinkedListImpl<>();
+
+		if (root != null) {
+
+			root.preOrderTraverse(preOrderTraverse);
+
+		}
+
+		return preOrderTraverse;
+	}
+
+	@Override
+	public TreeNode<K, V> getRoot() {
+		return root;
+	}
 
 }
+

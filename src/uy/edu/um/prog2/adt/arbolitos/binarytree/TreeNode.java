@@ -1,187 +1,187 @@
-/**
- * 
- */
 package uy.edu.um.prog2.adt.arbolitos.binarytree;
 
-import java.util.ArrayList;
-import java.util.List;
+import uy.edu.um.prog2.adt.linkedlist.MyList;
 
-/**
- * @author pegardan
- *
- */
-public class TreeNode<T extends Comparable<T>> {
+public class TreeNode<K extends Comparable<K>, V> implements Comparable<TreeNode<K, V>> {
 
-	private T value;
+	private K key;
 
-	private TreeNode<T> left;
+	private V value;
 
-	private TreeNode<T> right;
+	private TreeNode<K, V> left;
 
-	public TreeNode(T oValue) {
-		this.value = oValue;
+	private TreeNode<K, V> right;
+
+	public TreeNode(K key, V value) {
+		this.key = key;
+		this.value = value;
 	}
 
-	public void add(T oElement) {
-		int nValue = oElement.compareTo(value);
-		TreeNode<T> oElementToAdd = new TreeNode<T>(oElement);
-
-		if (nValue > 0) {
+	public void add(K key, V value) {
+		TreeNode<K, V> elementToAdd = new TreeNode<>(key, value);
+		if (key.compareTo(this.key) > 0) {
 
 			if (right == null) {
 
-				right = oElementToAdd;
+				right = elementToAdd;
 
 			} else {
 
-				right.add(oElement);
+				right.add(key, value);
 
 			}
-
 		} else {
-
 			if (left == null) {
 
-				left = oElementToAdd;
-
+				left = elementToAdd;
 			} else {
 
-				left.add(oElement);
-
+				left.add(key, value);
 			}
 		}
 
 	}
 
-	public TreeNode<T> remove(T oElement) {
-		int nValue = ((Comparable<T>) oElement).compareTo(value);
+	public TreeNode<K, V> remove(K key) {
+		TreeNode<K, V> elementToReturn = this;
 
-		if (nValue > 0) {
+		if (key.compareTo(this.key) > 0) {
 
 			if (right != null) {
 
-				right = right.remove(oElement);
+				right = right.remove(key);
 
 			}
 
-		} else if (nValue < 0) {
+		} else if (key.compareTo(this.key) < 0) {
 
 			if (left != null) {
 
-				left = left.remove(oElement);
+				left = left.remove(key);
 
 			}
 		} else if (left != null && right != null) {
 
 			// Encontre el elemento a eliminar
 
-			value = right.findMin();
+			TreeNode<K, V> min = right.findMin();
 
-			right = right.remove(value);
+			this.key = min.getKey();
+			this.value = min.getValue();
+
+			right = right.remove(min.getKey());
 
 		} else {
 
 			if (left != null) {
 
-				return left;
+				elementToReturn = left;
 
 			} else {
 
-				return right;
+				elementToReturn = right;
 
 			}
 
 		}
 
-		return this;
+		return elementToReturn;
 	}
 
-	public List<T> inOrderTraverse() {
-		List<T> colList = new ArrayList<T>();
-
+	public void inOrderTraverse(MyList<K> traverse) {
 		if (left != null) {
 
-			colList.addAll(left.inOrderTraverse());
+			left.inOrderTraverse(traverse);
 
 		}
 
-		colList.add(value);
+		traverse.add(this.getKey());
 
 		if (right != null) {
 
-			colList.addAll(right.inOrderTraverse());
+			right.inOrderTraverse(traverse);
 
 		}
-
-		return colList;
 	}
 
-	public List<T> preOrderTraverse() {
-		List<T> colList = new ArrayList<T>();
-
-		colList.add(getValue());
-
+	public void inOrderTraverseNode(MyList<TreeNode<K,V>> traverse) {
 		if (left != null) {
 
-			colList.addAll(left.preOrderTraverse());
+			left.inOrderTraverseNode(traverse);
 
 		}
+
+		traverse.add(this);
 
 		if (right != null) {
 
-			colList.addAll(right.preOrderTraverse());
+			right.inOrderTraverseNode(traverse);
 
 		}
-
-		return colList;
 	}
 
-	public List<T> postOrderTraverse() {
-		List<T> colList = new ArrayList<T>();
-
+	//postOrden
+	public void postOrderTraverse(MyList<K> traverse) {
 		if (left != null) {
 
-			colList.addAll(left.preOrderTraverse());
+			left.postOrderTraverse(traverse);
 
 		}
 
 		if (right != null) {
 
-			colList.addAll(right.preOrderTraverse());
+			right.postOrderTraverse(traverse);
+
+		}
+		traverse.add(this.getKey());
+	}
+	//preOrden
+	public void preOrderTraverse(MyList<K> traverse) {
+		traverse.add(this.getKey());
+
+		if (left != null) {
+
+			left.preOrderTraverse(traverse);
 
 		}
 
-		colList.add(getValue());
+		if (right != null) {
 
-		return colList;
+			right.preOrderTraverse(traverse);
+
+		}
 	}
 
-	public T getValue() {
+	public V getValue() {
 		return value;
 	}
 
-	public void setValue(T value) {
+	public K getKey() {
+		return key;
+	}
+
+	public void setValue(V value) {
 		this.value = value;
 	}
 
-	public TreeNode<T> getLeft() {
+	public TreeNode<K, V> getLeft() {
 		return left;
 	}
 
-	public void setLeft(TreeNode<T> left) {
+	public void setLeft(TreeNode<K, V> left) {
 		this.left = left;
 	}
 
-	public TreeNode<T> getRight() {
+	public TreeNode<K, V> getRight() {
 		return right;
 	}
 
-	public void setRigth(TreeNode<T> rigth) {
+	public void setRigth(TreeNode<K, V> rigth) {
 		this.right = rigth;
 	}
 
-	public T findMin() {
-		T oReturn = value;
+	public TreeNode<K, V> findMin() {
+		TreeNode<K, V> oReturn = this;
 
 		if (left != null) {
 
@@ -192,24 +192,8 @@ public class TreeNode<T extends Comparable<T>> {
 		return oReturn;
 	}
 
-	public List<T> inOrder() {
-		List<T> colValues = new ArrayList<T>();
-
-		if (left != null) {
-
-			colValues.addAll(left.inOrderTraverse());
-
-		}
-
-		colValues.add(value);
-
-		if (right != null) {
-
-			colValues.addAll(right.inOrderTraverse());
-
-		}
-
-		return colValues;
+	@Override
+	public int compareTo(TreeNode<K, V> o) {
+		return 0;
 	}
-
 }

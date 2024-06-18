@@ -168,5 +168,30 @@ public class HashTableImpl <K,V> implements HashTable <K,V> {
         return null;
     }
 
+    @Override
+    public int search(K key) {
+        int a = -1;
+        for (int i = 0; i < table.length; i++) {
+            if (table[i] != null && table[i].getKey().equals(key)) {
+                a = i;
+            }
+        }
+        return a;
+    }
+
+    @Override
+    public HashNode<K,V> searchNode(K key) {
+        int a = -1;
+        for (int i = 0; i < table.length; i++) {
+            if (table[i] != null && table[i].getKey().equals(key)) {
+                a = i;
+            }
+        }
+        if (a != -1) {
+            return table[a];
+        }
+        return null;
+    }
+
 
 }

@@ -7,4 +7,8 @@ public interface HashTable <K,V> {
 
     public V get(K artista);
 
+    public int search(K key);
+
+    public HashNode<K,V> searchNode(K key);
+
 }
